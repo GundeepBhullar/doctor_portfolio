@@ -314,7 +314,7 @@ All components automatically adapt using `LayoutBuilder` and `ResponsiveSizer`.
 
 - Location display
 - Get directions feature
-- Address: Mohali, Punjab, India
+- Address: SCO 50, First floor, Phase 11, Sector 65, Sahibzada Ajit Singh Nagar, Punjab 160062
 
 ---
 
@@ -432,7 +432,7 @@ The application is ready for:
 - **Email**: sangamkang@gmail.com
 - **Phone**: +91 6284717772
 - **Clinic Name**: Dr. Kang's Homoeopathic Clinic
-- **Location**: Mohali, Punjab
+- **Location**: SCO 50, First floor, Phase 11, Sector 65, Sahibzada Ajit Singh Nagar, Punjab 160062
 
 ---
 

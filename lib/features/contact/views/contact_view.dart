@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:get/get.dart';
 import 'package:doctor/features/contact/controllers/contact_controller.dart';
 import 'package:doctor/config/theme/app_colors.dart';
@@ -15,13 +14,14 @@ class ContactView extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<ContactController>(
       builder: (controller) {
+        final double sw = MediaQuery.of(context).size.width;
         return Scaffold(
           appBar: CustomAppBar(title: 'contact'.tr, showLogo: false),
           body: SingleChildScrollView(
             child: Column(
               children: [
                 // Hero Section
-                _buildContactHero(),
+                _buildContactHero(sw),
 
                 // Contact Methods
                 _buildContactMethods(),
@@ -39,7 +39,7 @@ class ContactView extends StatelessWidget {
     );
   }
 
-  Widget _buildContactHero() {
+  Widget _buildContactHero(double sw) {
     return Container(
       color: AppColors.primary,
       padding: EdgeInsets.symmetric(horizontal: AppConstants.spacingLarge, vertical: AppConstants.spacingXLarge * 2),
@@ -47,12 +47,13 @@ class ContactView extends StatelessWidget {
         children: [
           Text(
             'contact_title'.tr,
-            style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w700, color: AppColors.textInverse),
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: AppTextSizes.pageTitle(sw), fontWeight: FontWeight.w700, color: AppColors.textInverse),
           ),
           SizedBox(height: AppConstants.spacingMedium),
           Text(
             'contact_subtitle'.tr,
-            style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w400, color: AppColors.textInverse.withOpacity(0.9)),
+            style: TextStyle(fontSize: AppTextSizes.body(sw), fontWeight: FontWeight.w400, color: AppColors.textInverse.withOpacity(0.9)),
           ),
         ],
       ),
@@ -100,7 +101,7 @@ class ContactView extends StatelessWidget {
                   ),
                   ContactMethodCard(
                     title: 'visit_us'.tr,
-                    value: 'Mohali, Punjab',
+                    value: AppConstants.location,
                     icon: Icons.location_on,
                     onTap: () => LaunchUtils.launchMaps(location: AppConstants.mapLocation),
                   ),

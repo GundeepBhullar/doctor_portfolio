@@ -222,7 +222,7 @@ lib/
 | **Email**         | sangamkang@gmail.com                 |
 | **Phone**         | +91 6284717772                       |
 | **Clinic**        | Dr. Kang's Homoeopathic Clinic       |
-| **Location**      | Mohali, Punjab                       |
+| **Location**      | SCO 50, First floor, Phase 11, Sector 65, Sahibzada Ajit Singh Nagar, Punjab 160062 |
 
 ---
 

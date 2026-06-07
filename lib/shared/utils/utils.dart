@@ -75,7 +75,6 @@ class ResponsiveUtils {
 }
 
 class TextUtils {
-  // Truncate text
   static String truncate({required String text, required int maxLength, String suffix = '...'}) {
     if (text.length > maxLength) {
       return '${text.substring(0, maxLength)}$suffix';
@@ -83,9 +82,56 @@ class TextUtils {
     return text;
   }
 
-  // Capitalize first letter
   static String capitalize(String text) {
     if (text.isEmpty) return text;
     return text[0].toUpperCase() + text.substring(1);
   }
+}
+
+/// Responsive font sizes — returns raw logical-pixel values (no .sp needed).
+/// Mobile < 600 · Tablet 600–900 · Desktop ≥ 900
+class AppTextSizes {
+  // Doctor name on home hero
+  static double heroName(double w) =>
+      ResponsiveUtils.getResponsiveValue<double>(screenWidth: w, mobile: 24, tablet: 30, desktop: 38);
+
+  // Page-banner headings (About / Services / Contact hero strips)
+  static double pageTitle(double w) =>
+      ResponsiveUtils.getResponsiveValue<double>(screenWidth: w, mobile: 20, tablet: 24, desktop: 28);
+
+  // Section headings (SectionTitle widget, CTA headings)
+  static double sectionHeading(double w) =>
+      ResponsiveUtils.getResponsiveValue<double>(screenWidth: w, mobile: 18, tablet: 20, desktop: 22);
+
+  // Card / sub-section headings
+  static double cardHeading(double w) =>
+      ResponsiveUtils.getResponsiveValue<double>(screenWidth: w, mobile: 14, tablet: 15, desktop: 16);
+
+  // Standard body / description text
+  static double body(double w) =>
+      ResponsiveUtils.getResponsiveValue<double>(screenWidth: w, mobile: 13, tablet: 14, desktop: 15);
+
+  // Smaller card descriptions / detail text
+  static double bodySmall(double w) =>
+      ResponsiveUtils.getResponsiveValue<double>(screenWidth: w, mobile: 12, tablet: 13, desktop: 13);
+
+  // Copyright, tiny labels
+  static double caption(double w) =>
+      ResponsiveUtils.getResponsiveValue<double>(screenWidth: w, mobile: 10, tablet: 11, desktop: 11);
+
+  // "Welcome" label, qualification line below doctor name, hero subtitles
+  static double heroLabel(double w) =>
+      ResponsiveUtils.getResponsiveValue<double>(screenWidth: w, mobile: 13, tablet: 14, desktop: 15);
+
+  // AppBar navigation buttons
+  static double navItem(double w) =>
+      ResponsiveUtils.getResponsiveValue<double>(screenWidth: w, mobile: 12, tablet: 13, desktop: 14);
+
+  // AppBar clinic name / page title
+  static double appBarTitle(double w) =>
+      ResponsiveUtils.getResponsiveValue<double>(screenWidth: w, mobile: 14, tablet: 15, desktop: 16);
+
+  // Button labels
+  static double buttonLabel(double w) =>
+      ResponsiveUtils.getResponsiveValue<double>(screenWidth: w, mobile: 13, tablet: 14, desktop: 14);
 }

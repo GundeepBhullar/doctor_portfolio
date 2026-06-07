@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:doctor/features/home/controllers/home_controller.dart';
 import 'package:doctor/config/theme/app_colors.dart';
 import 'package:doctor/shared/constants/app_constants.dart';
+import 'package:doctor/shared/utils/utils.dart';
 import 'package:doctor/shared/widgets/custom_widgets.dart';
 import 'package:doctor/shared/widgets/footer.dart';
 import 'package:doctor/config/routes/app_routes.dart';
@@ -15,34 +16,16 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<HomeController>(
       builder: (controller) {
+        final double sw = MediaQuery.of(context).size.width;
         return Scaffold(
           appBar: CustomAppBar(title: 'home'.tr),
-          body: SingleChildScrollView(
-            child: Column(
-              children: [
-                // Hero Section
-                _buildHeroSection(),
-
-                // About Section
-                _buildAboutSection(),
-
-                // Services Preview
-                _buildServicesPreview(),
-
-                // CTA Section
-                _buildCtaSection(),
-
-                // Footer
-                Footer(),
-              ],
-            ),
-          ),
+          body: SingleChildScrollView(child: Column(children: [_buildHeroSection(sw), _buildAboutSection(sw), _buildServicesPreview(), _buildCtaSection(sw), Footer()])),
         );
       },
     );
   }
 
-  Widget _buildHeroSection() {
+  Widget _buildHeroSection(double sw) {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
@@ -55,16 +38,17 @@ class HomeView extends StatelessWidget {
             bool isDesktop = constraints.maxWidth > 900;
             return isDesktop
                 ? Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Expanded(child: _buildHeroContent()),
-                      Expanded(child: _buildHeroImage()),
+                      Flexible(flex: 2, child: _buildHeroContent(sw)),
+                      Flexible(flex: 1, child: _buildHeroImage()),
                     ],
                   )
                 : Column(
                     children: [
                       _buildHeroImage(),
                       SizedBox(height: AppConstants.spacingXLarge),
-                      _buildHeroContent(),
+                      _buildHeroContent(sw),
                     ],
                   );
           },
@@ -73,36 +57,38 @@ class HomeView extends StatelessWidget {
     );
   }
 
-  Widget _buildHeroContent() {
+  Widget _buildHeroContent(double sw) {
+    final double buttonWidth = ResponsiveUtils.getResponsiveValue<double>(screenWidth: sw, mobile: 85.w, tablet: 40.w, desktop: 22.w);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
           'welcome'.tr,
-          style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w500, color: AppColors.textInverse.withOpacity(0.9)),
+          style: TextStyle(fontSize: AppTextSizes.heroLabel(sw), fontWeight: FontWeight.w500, color: AppColors.textInverse.withOpacity(0.9)),
         ),
         SizedBox(height: AppConstants.spacingMedium),
         Text(
           'doctor_name'.tr,
-          style: TextStyle(fontSize: 28.sp, fontWeight: FontWeight.w700, color: AppColors.textInverse),
+          style: TextStyle(fontSize: AppTextSizes.heroName(sw), fontWeight: FontWeight.w700, color: AppColors.textInverse),
         ),
         Text(
           'qualification'.tr,
-          style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w400, color: AppColors.textInverse.withOpacity(0.9)),
+          style: TextStyle(fontSize: AppTextSizes.heroLabel(sw), fontWeight: FontWeight.w400, color: AppColors.textInverse.withOpacity(0.9)),
         ),
         SizedBox(height: AppConstants.spacingLarge),
         Text(
           'welcome_subtitle'.tr,
-          style: TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w400, color: AppColors.textInverse.withOpacity(0.85), height: 1.6),
+          style: TextStyle(fontSize: AppTextSizes.body(sw), fontWeight: FontWeight.w400, color: AppColors.textInverse.withOpacity(0.85), height: 1.6),
         ),
         SizedBox(height: AppConstants.spacingXLarge),
         Wrap(
           spacing: AppConstants.spacingMedium,
           runSpacing: AppConstants.spacingMedium,
           children: [
-            PrimaryButton(label: 'cta_book_appointment'.tr, onPressed: () => Get.toNamed(AppRoutes.contact), width: 180),
-            SecondaryButton(label: 'cta_learn_more'.tr, onPressed: () => Get.toNamed(AppRoutes.about), width: 180),
+            PrimaryButton(label: 'cta_book_appointment'.tr, onPressed: () => Get.offAndToNamed(AppRoutes.contact), width: buttonWidth),
+            SecondaryButton(label: 'cta_learn_more'.tr, onPressed: () => Get.offAndToNamed(AppRoutes.about), width: buttonWidth),
           ],
         ),
       ],
@@ -117,13 +103,11 @@ class HomeView extends StatelessWidget {
         borderRadius: BorderRadius.circular(AppConstants.radiusLarge),
         boxShadow: [BoxShadow(color: AppColors.shadowColor, blurRadius: 20, spreadRadius: 5)],
       ),
-      child: Center(
-        child: Icon(Icons.health_and_safety, size: 120.sp, color: AppColors.primary),
-      ),
+      child: Center(child: Image.asset('assets/icons/drKangLogo.jpeg')),
     );
   }
 
-  Widget _buildAboutSection() {
+  Widget _buildAboutSection(double sw) {
     return Container(
       color: AppColors.background,
       padding: EdgeInsets.symmetric(horizontal: AppConstants.spacingLarge, vertical: AppConstants.spacingXLarge * 2),
@@ -134,20 +118,20 @@ class HomeView extends StatelessWidget {
           LayoutBuilder(
             builder: (context, constraints) {
               bool isDesktop = constraints.maxWidth > 900;
-              List<String> highlights = ['philosophy', 'experience', 'services_title'];
+              List<String> highlights = ['philosophy', 'services_title'];
 
               if (isDesktop) {
                 return Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: highlights.map((highlight) => Expanded(child: _buildHighlightCard(highlight))).toList(),
+                  children: highlights.map((h) => Expanded(child: _buildHighlightCard(h, sw))).toList(),
                 );
               } else {
                 return Column(
                   children: highlights
                       .map(
-                        (highlight) => Column(
+                        (h) => Column(
                           children: [
-                            _buildHighlightCard(highlight),
+                            SizedBox(width: double.infinity, child: _buildHighlightCard(h, sw)),
                             SizedBox(height: AppConstants.spacingMedium),
                           ],
                         ),
@@ -162,7 +146,7 @@ class HomeView extends StatelessWidget {
     );
   }
 
-  Widget _buildHighlightCard(String key) {
+  Widget _buildHighlightCard(String key, double sw) {
     return Card(
       elevation: AppConstants.elevationSmall,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppConstants.radiusLarge)),
@@ -173,12 +157,12 @@ class HomeView extends StatelessWidget {
           children: [
             Text(
               key.tr,
-              style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w600, color: AppColors.textPrimary),
+              style: TextStyle(fontSize: AppTextSizes.cardHeading(sw), fontWeight: FontWeight.w600, color: AppColors.textPrimary),
             ),
             SizedBox(height: AppConstants.spacingSmall),
             Text(
               '${key}_description'.tr,
-              style: TextStyle(fontSize: 10.sp, fontWeight: FontWeight.w400, color: AppColors.textSecondary, height: 1.5),
+              style: TextStyle(fontSize: AppTextSizes.bodySmall(sw), fontWeight: FontWeight.w400, color: AppColors.textSecondary, height: 1.5),
             ),
           ],
         ),
@@ -220,7 +204,7 @@ class HomeView extends StatelessWidget {
     );
   }
 
-  Widget _buildCtaSection() {
+  Widget _buildCtaSection(double sw) {
     return Container(
       color: AppColors.primary,
       padding: EdgeInsets.symmetric(horizontal: AppConstants.spacingLarge, vertical: AppConstants.spacingXLarge * 2),
@@ -228,10 +212,11 @@ class HomeView extends StatelessWidget {
         children: [
           Text(
             'Ready to Book Your Appointment?',
-            style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w700, color: AppColors.textInverse),
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: AppTextSizes.sectionHeading(sw), fontWeight: FontWeight.w700, color: AppColors.textInverse),
           ),
           SizedBox(height: AppConstants.spacingLarge),
-          PrimaryButton(label: 'cta_book_appointment'.tr, onPressed: () => Get.toNamed(AppRoutes.contact)),
+          SecondaryButton(label: 'cta_book_appointment'.tr, onPressed: () => Get.toNamed(AppRoutes.contact)),
         ],
       ),
     );

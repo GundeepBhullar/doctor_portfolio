@@ -14,7 +14,7 @@ class Translation extends Translations {
 
     // Home Page
     'welcome': 'Welcome',
-    'welcome_subtitle': 'Your Health is Our Priority',
+    'welcome_subtitle': 'Rapid, Gentle and Permanent Cure',
     'cta_book_appointment': 'Book Appointment',
     'cta_learn_more': 'Learn More',
 
@@ -22,7 +22,7 @@ class Translation extends Translations {
     'doctor_name': 'Dr. Sangam Kang',
     'qualification': 'BHMS (Panjab University, Chandigarh)',
     'clinic_name': "Dr. Kang's Homoeopathic Clinic",
-    'location': 'Mohali, Punjab',
+    'location': 'SCO 50, First floor, Phase 11, Sector 65, Sahibzada Ajit Singh Nagar, Punjab 160062',
 
     // About Page
     'about_title': 'About Dr. Sangam Kang',
@@ -32,15 +32,19 @@ class Translation extends Translations {
     'years_experience': 'Years of Clinical Practice',
     'philosophy': 'Our Philosophy',
     'philosophy_description':
-        'We believe in treating the whole person, not just the disease. Our approach combines traditional homoeopathic principles with modern understanding of health and wellness.',
+        'Individualized Care & Holistic Approach\n\nWe recognize that every person is unique. Our approach focuses on understanding each patient\'s individual physical, mental, and emotional characteristics rather than concentrating only on the disease.\n\nWe believe in treating the individual, not just the illness, to support overall well-being and promote a balanced approach to health.',
 
     // Services
     'services_title': 'Our Services',
     'services_subtitle': 'Comprehensive Homoeopathic Care',
+    'services_title_description':
+        'Comprehensive management of chronic diseases\n\nPrompt treatment of acute conditions\n\nGentle, specialized care for children.\n\nEach service is tailored to meet the unique needs of our patients.',
     'chronic_diseases': 'Chronic Diseases',
-    'chronic_description': 'Specialized treatment for long-term health conditions using personalized remedies.',
+    'chronic_description':
+        'Dr. Kang specializes in comprehensive homoeopathic management of chronic and long-standing health conditions. Our individualized treatment approach addresses underlying causes to provide sustainable relief and improved quality of life.',
     'acute_conditions': 'Acute Conditions',
-    'acute_description': 'Quick and effective relief for acute ailments and sudden health issues.',
+    'acute_description':
+        'We provide prompt and effective homoeopathic care for acute ailments and sudden health issues. Our remedies offer natural and rapid relief while supporting your body\'s natural healing mechanisms.',
     'skin_disorders': 'Skin Disorders',
     'skin_description': 'Comprehensive homoeopathic solutions for various skin conditions and allergies.',
     'digestive_health': 'Digestive Health',
@@ -48,7 +52,8 @@ class Translation extends Translations {
     'women_health': "Women's Health",
     'women_description': 'Specialized care for women\'s health issues including hormonal balance and fertility.',
     'child_health': "Children's Health",
-    'child_description': 'Gentle and safe homoeopathic remedies for common childhood ailments.',
+    'child_description':
+        'Our clinic offers gentle and safe homoeopathic remedies specifically designed for children. We focus on treating common childhood ailments with a compassionate, child-centered approach that ensures their safety and well-being.',
 
     // Contact Page
     'contact_title': 'Get In Touch',
@@ -71,7 +76,7 @@ class Translation extends Translations {
     'whatsapp_us': 'WhatsApp Us',
     'phone_number': '+91 6284717772',
     'email_address': 'sangamkang@gmail.com',
-    'clinic_address': 'Mohali, Punjab, India',
+    'clinic_address': 'SCO 50, First floor, Phase 11, Sector 65, Sahibzada Ajit Singh Nagar, Punjab 160062',
 
     // Common
     'loading': 'Loading...',
@@ -98,7 +103,7 @@ class Translation extends Translations {
 
     // Home Page
     'welcome': 'स्वागत है',
-    'welcome_subtitle': 'आपका स्वास्थ्य हमारी प्राथमिकता है',
+    'welcome_subtitle': 'तेज़, सौम्य और स्थायी इलाज',
     'cta_book_appointment': 'नियुक्ति बुक करें',
     'cta_learn_more': 'और जानें',
 
@@ -116,15 +121,19 @@ class Translation extends Translations {
     'years_experience': 'वर्षों का क्लिनिकल अनुभव',
     'philosophy': 'हमारा दर्शन',
     'philosophy_description':
-        'हम पूरे व्यक्ति को ठीक करने में विश्वास करते हैं, सिर्फ बीमारी को नहीं। हमारा दृष्टिकोण पारंपरिक होम्योपैथिक सिद्धांतों को स्वास्थ्य और wellness की आधुनिक समझ के साथ जोड़ता है।',
+        'व्यक्तिगत देखभाल और समग्र दृष्टिकोण\n\nहम मानते हैं कि हर व्यक्ति अद्वितीय है। हमारा दृष्टिकोण प्रत्येक रोगी की व्यक्तिगत शारीरिक, मानसिक और भावनात्मक विशेषताओं को समझने पर केंद्रित है, केवल रोग पर ध्यान केंद्रित करने के बजाय।\n\nहम व्यक्ति को ठीक करने में विश्वास करते हैं, केवल बीमारी को नहीं, समग्र स्वास्थ्य का समर्थन करने और स्वास्थ्य के प्रति संतुलित दृष्टिकोण को बढ़ावा देने के लिए।',
 
     // Services
     'services_title': 'हमारी सेवाएं',
     'services_subtitle': 'व्यापक होम्योपैथिक देखभाल',
+    'services_title_description':
+        'क्रोनिक रोगों का व्यापक प्रबंधन\nतीव्र स्थितियों का तत्काल उपचार\nबच्चों के लिए कोमल, विशेषीकृत देखभाल।\nप्रत्येक सेवा हमारे रोगियों की अद्वितीय आवश्यकताओं को पूरा करने के लिए तैयार की जाती है।',
     'chronic_diseases': 'क्रोनिक रोग',
-    'chronic_description': 'व्यक्तिगतकृत उपचारों का उपयोग करके दीर्घकालीन स्वास्थ्य स्थितियों के लिए विशेष उपचार।',
+    'chronic_description':
+        'डॉ. कांग दीर्घकालीन और जीर्ण स्वास्थ्य स्थितियों के व्यापक होम्योपैथिक प्रबंधन में विशेषज्ञ हैं। हमारा व्यक्तिगत उपचार दृष्टिकोण अंतर्निहित कारणों को संबोधित करता है और टिकाऊ राहत तथा जीवन की गुणवत्ता में सुधार प्रदान करता है।',
     'acute_conditions': 'तीव्र स्थितियां',
-    'acute_description': 'तीव्र बीमारियों और अचानक स्वास्थ्य समस्याओं के लिए त्वरित और प्रभावी राहत।',
+    'acute_description':
+        'हम तीव्र बीमारियों और अचानक स्वास्थ्य समस्याओं के लिए तत्काल और प्रभावी होम्योपैथिक देखभाल प्रदान करते हैं। हमारे उपचार प्राकृतिक और तेजी से राहत देते हैं और आपके शरीर की प्राकृतिक उपचार क्षमता को समर्थन करते हैं।',
     'skin_disorders': 'त्वचा विकार',
     'skin_description': 'विभिन्न त्वचा स्थितियों और एलर्जी के लिए व्यापक होम्योपैथिक समाधान।',
     'digestive_health': 'पाचन स्वास्थ्य',
@@ -132,7 +141,8 @@ class Translation extends Translations {
     'women_health': 'महिलाओं का स्वास्थ्य',
     'women_description': 'हार्मोनल संतुलन और प्रजनन क्षमता सहित महिलाओं के स्वास्थ्य मुद्दों के लिए विशेष देखभाल।',
     'child_health': 'बच्चों का स्वास्थ्य',
-    'child_description': 'सामान्य बचपन की बीमारियों के लिए कोमल और सुरक्षित होम्योपैथिक उपचार।',
+    'child_description':
+        'हमारी क्लिनिक बच्चों के लिए विशेष रूप से डिज़ाइन किए गए कोमल और सुरक्षित होम्योपैथिक उपचार प्रदान करती है। हम सामान्य बचपन की बीमारियों के इलाज पर ध्यान केंद्रित करते हैं जो उनकी सुरक्षा और कल्याण सुनिश्चित करता है।',
 
     // Contact Page
     'contact_title': 'हमसे संपर्क करें',
@@ -182,7 +192,7 @@ class Translation extends Translations {
 
     // Home Page
     'welcome': 'ਸੁਆਗਤ ਹੈ',
-    'welcome_subtitle': 'ਤੁਹਾਡੀ ਸਿਹਤ ਸਾਡੀ ਤਰਜੀਹ ਹੈ',
+    'welcome_subtitle': 'ਤੇਜ਼, ਕੋਮਲ ਅਤੇ ਸਥਾਈ ਇਲਾਜ',
     'cta_book_appointment': 'ਅਪੁਆਇੰਟਮੈਂਟ ਬੁੱਕ ਕਰੋ',
     'cta_learn_more': 'ਹੋਰ ਜਾਣੋ',
 
@@ -200,15 +210,19 @@ class Translation extends Translations {
     'years_experience': 'ਸਾਲਾਂ ਦਾ ਕਲਿਨੀਕਲ ਅਨੁਭਵ',
     'philosophy': 'ਸਾਡਾ ਫ਼ਲਸਫ਼ਾ',
     'philosophy_description':
-        'ਅਸੀਂ ਪੂਰੇ ਵਿਅਕਤੀ ਨੂੰ ਠੀਕ ਕਰਨ ਵਿੱਚ ਵਿਸ਼ਵਾਸ ਕਰਦੇ ਹਾਂ, ਸਿਰਫ ਬਿਮਾਰੀ ਨੂੰ ਨਹੀਂ। ਸਾਡਾ ਦ੍ਰਿਸ਼ਟੀਕੋਣ ਪਰੰਪਰਾਗਤ ਹੋਮੀਓਪੈਥਿਕ ਸਿਧਾਂਤਾਂ ਨੂੰ ਸਿਹਤ ਅਤੇ wellness ਦੀ ਆਧੁਨਿਕ ਸਮਝ ਨਾਲ ਜੋੜਦਾ ਹੈ।',
+        'ਵਿਅਕਤੀਗਤ ਦੇਖਭਾਲ ਅਤੇ ਸਮਗ੍ਰ ਦ੍ਰਿਸ਼ਟੀਕੋਣ\n\nਅਸੀਂ ਮੰਨਦੇ ਹਾਂ ਕਿ ਹਰੇਕ ਵਿਅਕਤੀ ਵਿਲੱਖਣ ਹੈ। ਸਾਡਾ ਦ੍ਰਿਸ਼ਟੀਕੋਣ ਹਰੇਕ ਰੋਗੀ ਦੀਆਂ ਵਿਅਕਤੀਗਤ ਸਰੀਰਕ, ਮਾਨਸਿਕ ਅਤੇ ਜਜਬਾਤੀ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਨੂੰ ਸਮਝਣ ਤੇ ਕੇਂਦਰਿਤ ਹੈ, ਸਿਰਫ ਰੋਗ ਤੇ ਧਿਆਨ ਦੇਣ ਦੀ ਬਜਾਏ।\n\nਅਸੀਂ ਵਿਅਕਤੀ ਨੂੰ ਠੀਕ ਕਰਨ ਵਿੱਚ ਵਿਸ਼ਵਾਸ ਕਰਦੇ ਹਾਂ, ਸਿਰਫ ਬਿਮਾਰੀ ਨੂੰ ਨਹੀਂ, ਸਮਗ੍ਰ ਸਿਹਤ ਦਾ ਸਮਰਥਨ ਕਰਨ ਅਤੇ ਸਿਹਤ ਲਈ ਸੰਤੁਲਿਤ ਪਹੁੰਚ ਨੂੰ ਅੱਗੇ ਵਧਾਉਣ ਲਈ।',
 
     // Services
     'services_title': 'ਸਾਡੀਆਂ ਸੇਵਾਵਾਂ',
     'services_subtitle': 'ਵਿਆਪਕ ਹੋਮੀਓਪੈਥਿਕ ਦੇਖਭਾਲ',
+    'services_title_description':
+        'ਪ੍ਰੋਣਿਕ ਰੋਗਾਂ ਦਾ ਵਿਆਪਕ ਪ੍ਰਬੰਧ\nਤੀਬਰ ਸਥਿਤੀਆਂ ਦਾ ਤੁਰੰਤ ਇਲਾਜ\nਬੱਚਿਆਂ ਲਈ ਨਰਮ, ਵਿਸ਼ੇਸ਼ ਦੇਖਭਾਲ।\nਹਰੇਕ ਸੇਵਾ ਸਾਡੇ ਮਰੀਜ਼ਾਂ ਦੀਆਂ ਅਨੌਖੀ ਲੋੜਾਂ ਪੂਰੀਆਂ ਕਰਨ ਲਈ ਤਿਆਰ ਕੀਤੀ ਜਾਂਦੀ ਹੈ।',
     'chronic_diseases': 'ਪ੍ਰੋਣਿਕ ਰੋਗ',
-    'chronic_description': 'ਵਿਅਕਤੀਗਤ ਉਪਚਾਰਾਂ ਦੀ ਵਰਤੋਂ ਕਰਦੇ ਹੋਏ ਲੰਬੇ ਸਮੇਂ ਦੀਆਂ ਸਿਹਤ ਸਥਿਤੀਆਂ ਲਈ ਖਾਸ ਇਲਾਜ।',
+    'chronic_description':
+        'ਡਾ. ਕਾਂਗ ਦੀਰਘਕਾਲੀਨ ਅਤੇ ਲੰਬੇ ਸਮੇਂ ਚੱਲਣ ਵਾਲੀਆਂ ਸਿਹਤ ਸਥਿਤੀਆਂ ਦੇ ਵਿਆਪਕ ਹੋਮੀਓਪੈਥਿਕ ਪ੍ਰਬੰਧ ਵਿੱਚ ਵਿਸ਼ੇਸ਼ਜ੍ਞ ਹਨ। ਸਾਡਾ ਵਿਅਕਤੀਗਤ ਇਲਾਜ ਪਹੁੰਚ ਅੰਤਰ-ਨਿਹਿਤ ਕਾਰਣਾਂ ਨੂੰ ਸੰਬੋਧਿਤ ਕਰਦਾ ਹੈ ਅਤੇ ਸਥਾਈ ਰਾਹਤ ਤਥਾ ਜੀਵਨ ਦੀ ਗੁਣਵੱਤਾ ਵਿੱਚ ਸੁਧਾਰ ਪ੍ਰਦਾਨ ਕਰਦਾ ਹੈ।',
     'acute_conditions': 'ਤੀਬਰ ਸਥਿਤੀਆਂ',
-    'acute_description': 'ਤੀਬਰ ਬਿਮਾਰੀਆਂ ਅਤੇ ਅਚਾਨਕ ਸਿਹਤ ਸਮੱਸਿਆਵਾਂ ਲਈ ਤੇਜ਼ ਅਤੇ ਪ੍ਰਭਾਵਸ਼ਾਲੀ ਰਾਹਤ।',
+    'acute_description':
+        'ਅਸੀਂ ਤੀਬਰ ਬਿਮਾਰੀਆਂ ਅਤੇ ਅਚਾਨਕ ਸਿਹਤ ਸਮੱਸਿਆਵਾਂ ਲਈ ਤੁਰੰਤ ਅਤੇ ਪ੍ਰਭਾਵਸ਼ਾਲੀ ਹੋਮੀਓਪੈਥਿਕ ਦੇਖਭਾਲ ਪ੍ਰਦਾਨ ਕਰਦੇ ਹਾਂ। ਸਾਡੇ ਉਪਚਾਰ ਕੁਦਰਤੀ ਅਤੇ ਤੇਜ਼ ਰਾਹਤ ਦਿੰਦੇ ਹਨ ਅਤੇ ਆਪਣੇ ਸਰੀਰ ਦੀ ਕੁਦਰਤੀ ਚੰਗਾਈ ਦੀ ਸ਼ਕਤੀ ਨੂੰ ਸਮਰਥਨ ਕਰਦੇ ਹਨ।',
     'skin_disorders': 'ਚਮੜੀ ਦੇ ਵਿਕਾਰ',
     'skin_description': 'ਵੱਖ ਵੱਖ ਚਮੜੀ ਦੀਆਂ ਸਥਿਤੀਆਂ ਅਤੇ ਐਲਰਜੀਆਂ ਲਈ ਵਿਆਪਕ ਹੋਮੀਓਪੈਥਿਕ ਹੱਲ।',
     'digestive_health': 'ਪाਚਨ ਸਿਹਤ',
@@ -216,7 +230,8 @@ class Translation extends Translations {
     'women_health': 'ਮਹਿਲਾਵਾਂ ਦੀ ਸਿਹਤ',
     'women_description': 'ਹਾਰਮੋਨਲ ਸੰਤੁਲਨ ਅਤੇ ਪ੍ਰਜਨਨ ਸੰਬੰਧੀ ਮੁੱਦਿਆਂ ਸਮੇਤ ਮਹਿਲਾਵਾਂ ਦੀ ਸਿਹਤ ਸਮੱਸਿਆਵਾਂ ਲਈ ਖਾਸ ਦੇਖਭਾਲ।',
     'child_health': 'ਬੱਚਿਆਂ ਦੀ ਸਿਹਤ',
-    'child_description': 'ਆਮ ਬਚਪਨ ਦੀਆਂ ਬਿਮਾਰੀਆਂ ਲਈ ਨਰਮ ਅਤੇ ਸੁਰੱਖਿਅਤ ਹੋਮੀਓਪੈਥਿਕ ਉਪਚਾਰ।',
+    'child_description':
+        'ਸਾਡੀ ਕਲਿਨਿਕ ਬੱਚਿਆਂ ਲਈ ਖਾਸ ਤੌਰ ਤੇ ਤਿਆਰ ਕੀਤੇ ਗਏ ਨਰਮ ਅਤੇ ਸੁਰੱਖਿਅਤ ਹੋਮੀਓਪੈਥਿਕ ਉਪਚਾਰ ਪ੍ਰਦਾਨ ਕਰਦੀ ਹੈ। ਅਸੀਂ ਆਮ ਬਚਪਨ ਦੀਆਂ ਬਿਮਾਰੀਆਂ ਦੇ ਇਲਾਜ ਤੇ ਧਿਆਨ ਦਿੰਦੇ ਹਾਂ ਜੋ ਉਨ੍ਹਾਂ ਦੀ ਸੁਰੱਖਿਆ ਅਤੇ ਭਲਾਈ ਨੂੰ ਯਕੀਨੀ ਬਣਾਉਂਦਾ ਹੈ।',
 
     // Contact Page
     'contact_title': 'ਸਾਡੇ ਨਾਲ ਸੰਪਰਕ ਕਰੋ',

@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:doctor/features/services/controllers/services_controller.dart';
 import 'package:doctor/config/theme/app_colors.dart';
 import 'package:doctor/shared/constants/app_constants.dart';
+import 'package:doctor/shared/utils/utils.dart';
 import 'package:doctor/shared/widgets/custom_widgets.dart';
 import 'package:doctor/shared/widgets/footer.dart';
 import 'package:doctor/config/routes/app_routes.dart';
@@ -15,34 +16,16 @@ class ServicesView extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<ServicesController>(
       builder: (controller) {
+        final double sw = MediaQuery.of(context).size.width;
         return Scaffold(
           appBar: CustomAppBar(title: 'services'.tr, showLogo: false),
-          body: SingleChildScrollView(
-            child: Column(
-              children: [
-                // Hero Section
-                _buildServicesHero(),
-
-                // Services Grid
-                _buildServicesGrid(),
-
-                // Why Choose Us
-                _buildWhyChooseUs(),
-
-                // CTA
-                _buildCtaSection(),
-
-                // Footer
-                Footer(),
-              ],
-            ),
-          ),
+          body: SingleChildScrollView(child: Column(children: [_buildServicesHero(sw), _buildServicesGrid(), _buildWhyChooseUs(sw), _buildCtaSection(sw), Footer()])),
         );
       },
     );
   }
 
-  Widget _buildServicesHero() {
+  Widget _buildServicesHero(double sw) {
     return Container(
       color: AppColors.primary,
       padding: EdgeInsets.symmetric(horizontal: AppConstants.spacingLarge, vertical: AppConstants.spacingXLarge * 2),
@@ -50,12 +33,13 @@ class ServicesView extends StatelessWidget {
         children: [
           Text(
             'services_title'.tr,
-            style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w700, color: AppColors.textInverse),
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: AppTextSizes.pageTitle(sw), fontWeight: FontWeight.w700, color: AppColors.textInverse),
           ),
           SizedBox(height: AppConstants.spacingMedium),
           Text(
             'services_subtitle'.tr,
-            style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w400, color: AppColors.textInverse.withOpacity(0.9)),
+            style: TextStyle(fontSize: AppTextSizes.body(sw), fontWeight: FontWeight.w400, color: AppColors.textInverse.withOpacity(0.9)),
           ),
         ],
       ),
@@ -91,7 +75,7 @@ class ServicesView extends StatelessWidget {
     );
   }
 
-  Widget _buildWhyChooseUs() {
+  Widget _buildWhyChooseUs(double sw) {
     return Container(
       color: AppColors.surface,
       padding: EdgeInsets.symmetric(horizontal: AppConstants.spacingLarge, vertical: AppConstants.spacingXLarge * 2),
@@ -116,15 +100,15 @@ class ServicesView extends StatelessWidget {
                   crossAxisCount: 2,
                   mainAxisSpacing: AppConstants.spacingLarge,
                   crossAxisSpacing: AppConstants.spacingLarge,
-                  children: benefits.map((benefit) => _buildBenefitCard(benefit)).toList(),
+                  children: benefits.map((b) => _buildBenefitCard(b, sw)).toList(),
                 );
               } else {
                 return Column(
                   children: benefits
                       .map(
-                        (benefit) => Column(
+                        (b) => Column(
                           children: [
-                            _buildBenefitCard(benefit),
+                            _buildBenefitCard(b, sw),
                             SizedBox(height: AppConstants.spacingMedium),
                           ],
                         ),
@@ -139,7 +123,7 @@ class ServicesView extends StatelessWidget {
     );
   }
 
-  Widget _buildBenefitCard(Map<String, dynamic> benefit) {
+  Widget _buildBenefitCard(Map<String, dynamic> benefit, double sw) {
     return Card(
       elevation: AppConstants.elevationSmall,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppConstants.radiusLarge)),
@@ -151,17 +135,17 @@ class ServicesView extends StatelessWidget {
             Container(
               padding: EdgeInsets.all(AppConstants.spacingMedium),
               decoration: BoxDecoration(color: AppColors.primaryLighter, borderRadius: BorderRadius.circular(AppConstants.radiusMedium)),
-              child: Icon(benefit['icon'] as IconData, color: AppColors.primary, size: 24.sp),
+              child: Icon(benefit['icon'] as IconData, color: AppColors.primary, size: AppConstants.fontSizeXXL.sp),
             ),
             SizedBox(height: AppConstants.spacingMedium),
             Text(
               benefit['title'],
-              style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w600, color: AppColors.textPrimary),
+              style: TextStyle(fontSize: AppTextSizes.cardHeading(sw), fontWeight: FontWeight.w600, color: AppColors.textPrimary),
             ),
             SizedBox(height: AppConstants.spacingSmall),
             Text(
               benefit['description'],
-              style: TextStyle(fontSize: 10.sp, fontWeight: FontWeight.w400, color: AppColors.textSecondary, height: 1.5),
+              style: TextStyle(fontSize: AppTextSizes.bodySmall(sw), fontWeight: FontWeight.w400, color: AppColors.textSecondary, height: 1.5),
             ),
           ],
         ),
@@ -169,7 +153,7 @@ class ServicesView extends StatelessWidget {
     );
   }
 
-  Widget _buildCtaSection() {
+  Widget _buildCtaSection(double sw) {
     return Container(
       color: AppColors.primary,
       padding: EdgeInsets.symmetric(horizontal: AppConstants.spacingLarge, vertical: AppConstants.spacingXLarge * 2),
@@ -177,10 +161,11 @@ class ServicesView extends StatelessWidget {
         children: [
           Text(
             'Ready to Start Your Healing Journey?',
-            style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w700, color: AppColors.textInverse),
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: AppTextSizes.sectionHeading(sw), fontWeight: FontWeight.w700, color: AppColors.textInverse),
           ),
           SizedBox(height: AppConstants.spacingLarge),
-          PrimaryButton(label: 'cta_book_appointment'.tr, onPressed: () => Get.toNamed(AppRoutes.contact)),
+          SecondaryButton(label: 'cta_book_appointment'.tr, onPressed: () => Get.toNamed(AppRoutes.contact)),
         ],
       ),
     );

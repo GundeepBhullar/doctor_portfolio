@@ -1,4 +1,7 @@
+import 'package:doctor/config/routes/app_routes.dart';
+import 'package:doctor/shared/utils/utils.dart';
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:get/get.dart';
 import 'package:doctor/config/theme/app_colors.dart';
@@ -13,9 +16,49 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double currentWidth = MediaQuery.of(context).size.width;
+
+    List<Widget> actionList = ResponsiveUtils.getResponsiveValue<List<Widget>>(
+      screenWidth: currentWidth,
+      mobile: [
+        Padding(
+          padding: const EdgeInsets.only(right: AppConstants.spacingSmall),
+          child: LanguageSwitcher(),
+        ),
+      ],
+      tablet: [
+        ActionButton(onPressed: () => Get.offAndToNamed(AppRoutes.home), title: 'home'.tr),
+        Gap(3.w),
+        ActionButton(onPressed: () => Get.offAndToNamed(AppRoutes.about), title: 'about'.tr),
+        Gap(3.w),
+        ActionButton(onPressed: () => Get.offAndToNamed(AppRoutes.services), title: 'services'.tr),
+        Gap(3.w),
+        ActionButton(onPressed: () => Get.offAndToNamed(AppRoutes.contact), title: 'contact'.tr),
+        Gap(3.w),
+        Padding(
+          padding: const EdgeInsets.only(right: AppConstants.spacingSmall),
+          child: LanguageSwitcher(),
+        ),
+      ],
+      desktop: [
+        ActionButton(onPressed: () => Get.offAndToNamed(AppRoutes.home), title: 'home'.tr),
+        Gap(3.w),
+        ActionButton(onPressed: () => Get.offAndToNamed(AppRoutes.about), title: 'about'.tr),
+        Gap(3.w),
+        ActionButton(onPressed: () => Get.offAndToNamed(AppRoutes.services), title: 'services'.tr),
+        Gap(3.w),
+        ActionButton(onPressed: () => Get.offAndToNamed(AppRoutes.contact), title: 'contact'.tr),
+        Gap(3.w),
+        Padding(
+          padding: const EdgeInsets.only(right: AppConstants.spacingSmall),
+          child: LanguageSwitcher(),
+        ),
+      ],
+    );
+
     return AppBar(
       backgroundColor: AppColors.primary,
-      elevation: 0,
+      // elevation: 0,
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -25,28 +68,46 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  AppConstants.clinicName,
-                  style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold, color: AppColors.textInverse),
+                  'clinic_name'.tr,
+                  style: TextStyle(fontSize: AppTextSizes.appBarTitle(currentWidth), fontWeight: FontWeight.bold, color: AppColors.textInverse),
                 ),
-                Text(
-                  AppConstants.doctorName,
-                  style: TextStyle(fontSize: 10.sp, fontWeight: FontWeight.w400, color: AppColors.textInverse),
-                ),
+                // Text(
+                //   AppConstants.doctorName,
+                //   style: TextStyle(fontSize: 10.sp, fontWeight: FontWeight.w400, color: AppColors.textInverse),
+                // ),
               ],
             )
           else
             Text(
               title,
-              style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w600, color: AppColors.textInverse),
+              style: TextStyle(fontSize: AppTextSizes.appBarTitle(currentWidth), fontWeight: FontWeight.w600, color: AppColors.textInverse),
             ),
         ],
       ),
-      actions: [Padding(padding: EdgeInsets.all(8.w), child: LanguageSwitcher())],
+      actions: actionList,
     );
   }
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+}
+
+class ActionButton extends StatelessWidget {
+  final VoidCallback onPressed;
+  final String title;
+  const ActionButton({super.key, required this.onPressed, required this.title});
+
+  @override
+  Widget build(BuildContext context) {
+    final double sw = MediaQuery.of(context).size.width;
+    return InkWell(
+      onTap: onPressed,
+      child: Text(
+        title,
+        style: TextStyle(fontSize: AppTextSizes.navItem(sw), fontWeight: FontWeight.w600, color: AppColors.textInverse),
+      ),
+    );
+  }
 }
 
 class LanguageSwitcher extends StatelessWidget {
@@ -73,11 +134,13 @@ class PrimaryButton extends StatelessWidget {
   final IconData? icon;
   final double? width;
   final double? height;
+  final double? fontSize;
 
-  const PrimaryButton({required this.label, required this.onPressed, this.isLoading = false, this.icon, this.width, this.height});
+  const PrimaryButton({required this.label, required this.onPressed, this.isLoading = false, this.icon, this.width, this.height, this.fontSize});
 
   @override
   Widget build(BuildContext context) {
+    final double sw = MediaQuery.of(context).size.width;
     return SizedBox(
       width: width,
       height: height ?? 50,
@@ -97,7 +160,7 @@ class PrimaryButton extends StatelessWidget {
                   if (icon != null) SizedBox(width: 8),
                   Text(
                     label,
-                    style: TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w600),
+                    style: TextStyle(fontSize: fontSize ?? AppTextSizes.buttonLabel(sw), fontWeight: FontWeight.w600),
                   ),
                 ],
               ),
@@ -117,14 +180,15 @@ class SecondaryButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double sw = MediaQuery.of(context).size.width;
     return SizedBox(
       width: width,
       height: height ?? 50,
       child: OutlinedButton(
         onPressed: onPressed,
         style: OutlinedButton.styleFrom(
-          foregroundColor: AppColors.primary,
-          side: BorderSide(color: AppColors.primary, width: 2),
+          foregroundColor: AppColors.textInverse,
+          side: BorderSide(color: AppColors.borderPrimary, width: 2),
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppConstants.radiusMedium)),
         ),
         child: Row(
@@ -134,7 +198,7 @@ class SecondaryButton extends StatelessWidget {
             if (icon != null) SizedBox(width: 8),
             Text(
               label,
-              style: TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w600),
+              style: TextStyle(fontSize: AppTextSizes.buttonLabel(sw), fontWeight: FontWeight.w600),
             ),
           ],
         ),
@@ -176,6 +240,7 @@ class SectionTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double sw = MediaQuery.of(context).size.width;
     return Padding(
       padding: padding,
       child: Column(
@@ -183,14 +248,14 @@ class SectionTitle extends StatelessWidget {
           Text(
             title,
             textAlign: textAlign,
-            style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w700, color: AppColors.textPrimary),
+            style: TextStyle(fontSize: AppTextSizes.sectionHeading(sw), fontWeight: FontWeight.w700, color: AppColors.textPrimary),
           ),
           if (subtitle != null) ...[
             SizedBox(height: AppConstants.spacingSmall),
             Text(
               subtitle!,
               textAlign: textAlign,
-              style: TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w400, color: AppColors.textSecondary),
+              style: TextStyle(fontSize: AppTextSizes.body(sw), fontWeight: FontWeight.w400, color: AppColors.textSecondary),
             ),
           ],
         ],
@@ -209,6 +274,7 @@ class ServiceCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double sw = MediaQuery.of(context).size.width;
     return Card(
       elevation: AppConstants.elevationSmall,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppConstants.radiusLarge)),
@@ -223,17 +289,17 @@ class ServiceCard extends StatelessWidget {
               Container(
                 padding: EdgeInsets.all(AppConstants.spacingMedium),
                 decoration: BoxDecoration(color: AppColors.primaryLighter, borderRadius: BorderRadius.circular(AppConstants.radiusMedium)),
-                child: Icon(icon, color: AppColors.primary, size: 24.sp),
+                child: Icon(icon, color: AppColors.primary, size: AppConstants.fontSizeXXL.sp),
               ),
               SizedBox(height: AppConstants.spacingMedium),
               Text(
                 title,
-                style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w600, color: AppColors.textPrimary),
+                style: TextStyle(fontSize: AppTextSizes.cardHeading(sw), fontWeight: FontWeight.w600, color: AppColors.textPrimary),
               ),
               SizedBox(height: AppConstants.spacingSmall),
               Text(
                 description,
-                style: TextStyle(fontSize: 10.sp, fontWeight: FontWeight.w400, color: AppColors.textSecondary, height: 1.5),
+                style: TextStyle(fontSize: AppTextSizes.bodySmall(sw), fontWeight: FontWeight.w400, color: AppColors.textSecondary, height: 1.5),
               ),
             ],
           ),
@@ -253,6 +319,7 @@ class ContactMethodCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double sw = MediaQuery.of(context).size.width;
     return Card(
       elevation: AppConstants.elevationSmall,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(AppConstants.radiusLarge)),
@@ -262,24 +329,25 @@ class ContactMethodCard extends StatelessWidget {
         child: Padding(
           padding: EdgeInsets.all(AppConstants.spacingLarge),
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
                 padding: EdgeInsets.all(AppConstants.spacingMedium),
                 decoration: BoxDecoration(color: AppColors.secondaryLighter, borderRadius: BorderRadius.circular(AppConstants.radiusMedium)),
-                child: Icon(icon, color: AppColors.secondary, size: 24.sp),
+                child: Icon(icon, color: AppColors.secondary, size: AppConstants.fontSizeXXL.sp),
               ),
               SizedBox(height: AppConstants.spacingMedium),
               Text(
                 title,
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w600, color: AppColors.textPrimary),
+                style: TextStyle(fontSize: AppTextSizes.cardHeading(sw), fontWeight: FontWeight.w600, color: AppColors.textPrimary),
               ),
               SizedBox(height: AppConstants.spacingSmall),
               Text(
                 value,
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 10.sp, fontWeight: FontWeight.w400, color: AppColors.textSecondary),
+                style: TextStyle(fontSize: AppTextSizes.bodySmall(sw), fontWeight: FontWeight.w400, color: AppColors.textSecondary),
               ),
             ],
           ),
